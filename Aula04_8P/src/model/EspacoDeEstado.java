@@ -18,5 +18,19 @@ package model;
 
 
 public class EspacoDeEstado {
+  Estado estadoInicial;
+  Estado estadoObjetivo;
+  public EspacoDeEstado(Estado aEstadoInitial, Estado aEstadoObjetivo){
+    this.estadoInicial  = aEstadoInitial;
+    this.estadoObjetivo = aEstadoObjetivo;
+  }
+  
+  public Solution solve() {
+    Solution sol = new Solution();
+    BuscaNoEspacoDeEstado busca = new BuscaNoEspacoDeEstado();
+    sol = busca.fazerBusca(estadoInicial, estadoObjetivo);
+    
+    return sol;
+  }
 
 }

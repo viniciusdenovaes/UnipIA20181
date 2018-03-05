@@ -11,15 +11,22 @@ package model;
 
 public class Tabuleiro {
   
-  Tabuleiro(){}
+  public Tabuleiro(){}
   
   // Contructor para criar um Tabuleiro a partir de outro
-  Tabuleiro(Tabuleiro aTabuleiro){
+  public Tabuleiro(Tabuleiro aTabuleiro){
     for(int i=0; i<Tabuleiro.n; ++i)
       for(int j=0; j<Tabuleiro.n; ++j)
         this.t[i][j] = aTabuleiro.t[i][j];
     this.vazioColuna = aTabuleiro.vazioColuna;
     this.vazioLinha = aTabuleiro.vazioLinha;
+  }
+  
+  public Tabuleiro(int[][] tabuleiroMatrix){
+    for(int i=0; i<Tabuleiro.n; ++i)
+      for(int j=0; j<Tabuleiro.n; ++j)
+        this.t[i][j] = tabuleiroMatrix[i][j];
+    resetEspacoPosicao();
   }
   
   static final int n = 3;
@@ -57,7 +64,7 @@ public class Tabuleiro {
           return true;
         break;
       case ESQUERDA:
-        if(this.vazioColuna < 0)
+        if(this.vazioColuna > 0)
           return true;
         break;
       default:
@@ -96,12 +103,42 @@ public class Tabuleiro {
   
   // funcao para trocar uma peca de lugar com o espaco vazio
   private void moveEspaco(int newvazioLinha, int newvazioColuna) {
-    this.t[this.vazioLinha][this.vazioLinha] = this.t[newvazioLinha][newvazioLinha];
-    this.t[newvazioLinha][newvazioLinha] = 0;
+    this.t[this.vazioLinha][this.vazioColuna] = this.t[newvazioLinha][newvazioColuna];
+    this.t[newvazioLinha][newvazioColuna] = 0;
     this.vazioLinha = newvazioLinha;
     this.vazioColuna = newvazioColuna;
   }
-
+  
+  @Override public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    if (!Tabuleiro.class.isAssignableFrom(obj.getClass())) {
+      return false;
+    }
+    final Tabuleiro other = (Tabuleiro) obj;
+    for(int i=0; i<this.t.length; i++) {
+      for(int j=0; j<this.t[i].length; j++) {
+        if(this.t[i][j] != other.t[i][j])
+          return false;
+      }
+    }
+    return true;
+  }
+  
+  
+  
+  @Override public String toString() {
+    String res = "";
+    for(int i=0; i<this.t.length; ++i) {
+      for(int j=0; j<this.t.length; ++j) {
+        res += this.t[i][j] + " ";
+      }
+      res += "\n";
+    }
+    return res;
+  }
+  
 }
 
 
