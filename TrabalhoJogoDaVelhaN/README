@@ -22,7 +22,7 @@ Para criar um jogador você deve extender a classe Player
 Seu jogador deve implementar as seguintes funções
 * public Jogada joga(Tabuleiro tabuleiro);
 * * recebe uma foto do tabuleiro e retorna uma jogada "public Jogada joga(TabuleiroFoto aTabuleiroFoto);"
-* * pode ter um constructor "public Player(int aN, TabuleiroFoto aTabuleiroFoto)"
+* pode ter um constructor "public Player(int aN, TabuleiroFoto aTabuleiroFoto)"
 
 Uma Jogada é uma classe que tem dois atributos públicos x e y, representando as coordenadas da jogada:
 * x representa a linha
