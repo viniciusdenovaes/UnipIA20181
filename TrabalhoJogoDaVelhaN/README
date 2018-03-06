@@ -5,13 +5,39 @@ Você receberá um .jar que simula um jogo da velha com NxN casas (você escolhe
 O .jar inclui uma fábrica de oponentes
 * você pode criar três tipos de jogadores já programados para testar seu jogador:
 * * PlayerR: joga sempre aleatório
-* * Player1: enxerga uma jogada à frente (ainda não implementado)
-* * Player2: enxerga duas jogadas à frente (ainda não implementado)
+* * Player1: avalia o próximo tabuleiro (avaliação heurística) (AINDA NÃO IMPLEMENTADO)
 
 Você deve criar dois jogadores: 
 * um jogador que saiba jogar o jogo
 * um jogador que ganhe na maiorida das vezes do PlayerR
 O seu jogador deve ser uma subclasse de Player (que extende a interface Playable) (classes em anexo)
+
+Sobre a fábrica de jogadores:
+Para criar um oponente você deve usar o "Player PlayerFactory.getPlayer(char tipo, Tabuleiro tabuleiro);"
+* tipo é um char:
+* * 'R' para jogador que joga aleatório
+* * '1' para jogador que avalia o próximo passo (AINDA NÃO IMPLEMENTADO)
+
+Para criar um jogador você deve extender a classe Player
+Seu jogador deve implementar as seguintes funções
+* public Jogada joga(Tabuleiro tabuleiro);
+* * recebe uma foto do tabuleiro e retorna uma jogada "public Jogada joga(TabuleiroFoto aTabuleiroFoto);"
+* * pode ter um constructor "public Player(int aN, TabuleiroFoto aTabuleiroFoto)"
+
+Uma Jogada é uma classe que tem dois atributos públicos x e y, representando as coordenadas da jogada:
+* x representa a linha
+* y a coluna
+* você pode criar uma nova jogada com o constructor "public Jogada(int aX, int aY)"
+
+Uma foto do tabuleiro é um objeto da classe TabuleiroFoto
+* tem os valores 
+* * public static int n para representar o tamanho do tabuleiro
+* * public char[][] t para representar a imagem do tabuleiro com os símbolos
+* * * '_' para espaço vazio
+* * * 'O' para círculo
+* * * 'X' para o X
+
+
 
 
 
@@ -19,16 +45,16 @@ Um exemplo de como usar o .jar:
 
 import model.Jogo;
 import model.Player;
-import model.Tabuleiro;
+import model.TabuleiroFoto;
 import playerFactory.PlayerFactory;
 
 public class AlunoTest {
   public static void main(String[] args) {
     int n=5;
-    Tabuleiro tabuleiro = new Tabuleiro(n);
-    Player p1 = PlayerFactory.getPlayer('R', tabuleiro);
-    Player p2 = PlayerFactory.getPlayer('R', tabuleiro);
-    Jogo jogo = new Jogo(tabuleiro, p1, p2);
+    TabuleiroFoto tabuleiroFoto = new TabuleiroFoto(n);
+    Player p1 = PlayerFactory.getPlayer('R', n, tabuleiroFoto);
+    Player p2 = PlayerFactory.getPlayer('R', n, tabuleiroFoto);
+    Jogo jogo = new Jogo(tabuleiroFoto, p1, p2);
   }
 }
 
