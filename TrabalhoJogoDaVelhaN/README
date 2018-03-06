@@ -1,0 +1,36 @@
+Neste trabalho você deve criar um jogador de jogo da velha em um tabuleiro com NxN casas
+
+Você receberá um .jar que simula um jogo da velha com NxN casas (você escolhe o número de casas)
+
+O .jar inclui uma fábrica de oponentes
+* você pode criar três tipos de jogadores já programados para testar seu jogador:
+* * PlayerR: joga sempre aleatório
+* * Player1: enxerga uma jogada à frente (ainda não implementado)
+* * Player2: enxerga duas jogadas à frente (ainda não implementado)
+
+Você deve criar dois jogadores: 
+* um jogador que saiba jogar o jogo
+* um jogador que ganhe na maiorida das vezes do PlayerR
+O seu jogador deve ser uma subclasse de Player (que extende a interface Playable) (classes em anexo)
+
+
+
+Um exemplo de como usar o .jar:
+
+import model.Jogo;
+import model.Player;
+import model.Tabuleiro;
+import playerFactory.PlayerFactory;
+
+public class AlunoTest {
+  public static void main(String[] args) {
+    int n=5;
+    Tabuleiro tabuleiro = new Tabuleiro(n);
+    Player p1 = PlayerFactory.getPlayer('R', tabuleiro);
+    Player p2 = PlayerFactory.getPlayer('R', tabuleiro);
+    Jogo jogo = new Jogo(tabuleiro, p1, p2);
+  }
+}
+
+
+
