@@ -2,6 +2,6 @@ package model;
 
 public interface Playable {
   
-  public Jogada joga(Tabuleiro tabuleiro);
+  public Jogada joga(TabuleiroFoto aTabuleiroFoto);
 
 }

@@ -1,7 +1,8 @@
 package model;
 
 public abstract class Player implements Playable{
-  public Player(Tabuleiro tabuleiro) {};
+  public Player(int aN, TabuleiroFoto aTabuleiroFoto) {
+  };
   public enum Side{
     O,X;
     
@@ -16,7 +17,7 @@ public abstract class Player implements Playable{
     }
   };
   Side side;
-  public void setSide(Player.Side aSide) {
+  void setSide(Player.Side aSide) {
     this.side = aSide;
   }
 }
