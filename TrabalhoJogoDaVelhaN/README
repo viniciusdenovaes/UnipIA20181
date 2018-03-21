@@ -16,6 +16,7 @@ Sobre a fábrica de jogadores:
 Para criar um oponente você deve usar o "Player PlayerFactory.getPlayer(char tipo, Tabuleiro tabuleiro);"
 * tipo é um char:
 * * 'R' para jogador que joga aleatório
+* * 'E' para jogador que joga aleatório e errado
 * * '1' para jogador que avalia o próximo passo (AINDA NÃO IMPLEMENTADO)
 
 Para criar um jogador você deve extender a classe Player
@@ -38,7 +39,7 @@ Uma foto do tabuleiro é um objeto da classe TabuleiroFoto
 * * * 'X' para o X
 
 O que ainda falta eu implementar:
-- penalizar jogadas não permitidas
+- [feature] jogador que faz uma heurística de avaliação
 
 
 
