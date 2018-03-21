@@ -25,4 +25,18 @@ public class TabuleiroFoto {
       for(int j=0; j<TabuleiroFoto.n; ++j)
         this.t[i][j] = tabuleiro.t[i][j];
   }
+  
+  @Override public String toString() {
+    String res = "" + TabuleiroFoto.n;
+    for(int i=0; i<TabuleiroFoto.n; ++i) {
+      res += "|";
+      for(int j=0; j<TabuleiroFoto.n; ++j) {
+        res += this.t[i][j] + "|";
+      }
+      res += "\n";
+    }
+    return res;
+  }
+
+  
 }
