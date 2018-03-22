@@ -6,7 +6,7 @@ public abstract class Player implements Playable{
   public enum Side{
     O,X;
     
-    char getChar(Side side) {
+    static char getChar(Side side) {
       switch(side) {
       case O:
         return 'O';
@@ -17,6 +17,13 @@ public abstract class Player implements Playable{
     }
   };
   Side side;
+  public char getSide() {
+    return Player.Side.getChar(this.side);
+  }
+  public char getOtherSide() {
+    return Player.Side.getChar(
+           Player.Side.values()[ (this.side.ordinal()+1) % Player.Side.values().length ]);
+  }
   void setSide(Player.Side aSide) {
     this.side = aSide;
   }
