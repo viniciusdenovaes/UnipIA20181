@@ -1,6 +1,9 @@
 Neste trabalho você deve criar um jogador de jogo da velha em um tabuleiro com NxN casas
 
-Você receberá um .jar que simula um jogo da velha com NxN casas (você escolhe o número de casas)
+Você receberá um .jar que simula um jogo da velha com NxN casas (o jogo escolhe o número de casas)
+
+Os arquivos fontes dados aqui fazem parte do .jar, não precisa adicionar, só usar do .jar
+Eles estão expostos para você poder olhar as funções.
 
 O .jar inclui uma fábrica de oponentes
 * você pode criar três tipos de jogadores já programados para testar seu jogador:
@@ -24,6 +27,8 @@ Seu jogador deve implementar as seguintes funções
 * public Jogada joga(Tabuleiro tabuleiro);
 * * recebe uma foto do tabuleiro e retorna uma jogada "public Jogada joga(TabuleiroFoto aTabuleiroFoto);"
 * pode ter um constructor "public Player(int aN, TabuleiroFoto aTabuleiroFoto)"
+* tem uma função getSide que retorna o lado que o jogador está jogando 'X' ou 'O'
+* tem uma função setSide(char) que define o lado que o jogador está jogando (para testes)
 
 Uma Jogada é uma classe que tem dois atributos públicos x e y, representando as coordenadas da jogada:
 * x representa a linha
@@ -32,7 +37,7 @@ Uma Jogada é uma classe que tem dois atributos públicos x e y, representando a
 
 Uma foto do tabuleiro é um objeto da classe TabuleiroFoto
 * tem os valores 
-* * public static int n para representar o tamanho do tabuleiro
+* * public int n para representar o tamanho do tabuleiro
 * * public char[][] t para representar a imagem do tabuleiro com os símbolos
 * * * '_' para espaço vazio
 * * * 'O' para círculo
