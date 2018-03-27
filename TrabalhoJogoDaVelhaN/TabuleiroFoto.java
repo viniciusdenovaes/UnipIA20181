@@ -1,36 +1,43 @@
 package model;
 
 public class TabuleiroFoto {
-  public static int n;
+  public int n;
   public char[][] t;
   
   public TabuleiroFoto(int aN) {
-    TabuleiroFoto.n = aN;
-    this.t = new char[TabuleiroFoto.n][TabuleiroFoto.n];
-    for(int i=0; i<TabuleiroFoto.n; ++i)
-      for(int j=0; j<TabuleiroFoto.n; ++j)
+    this.n = aN;
+    this.t = new char[this.n][this.n];
+    for(int i=0; i<this.n; ++i)
+      for(int j=0; j<this.n; ++j)
         this.t[i][j] = '_';
   }
   public TabuleiroFoto(int aN, char[][] photo) {
-    TabuleiroFoto.n = aN;
-    this.t = new char[TabuleiroFoto.n][TabuleiroFoto.n];
-    for(int i=0; i<TabuleiroFoto.n; ++i)
-      for(int j=0; j<TabuleiroFoto.n; ++j)
+    this.n = aN;
+    this.t = new char[this.n][this.n];
+    for(int i=0; i<this.n; ++i)
+      for(int j=0; j<this.n; ++j)
         this.t[i][j] = photo[i][j];
   }
   public TabuleiroFoto(Tabuleiro tabuleiro) {
-    TabuleiroFoto.n = Tabuleiro.n;
-    this.t = new char[TabuleiroFoto.n][TabuleiroFoto.n];
-    for(int i=0; i<TabuleiroFoto.n; ++i)
-      for(int j=0; j<TabuleiroFoto.n; ++j)
+    this.n = Tabuleiro.n;
+    this.t = new char[this.n][this.n];
+    for(int i=0; i<this.n; ++i)
+      for(int j=0; j<this.n; ++j)
         this.t[i][j] = tabuleiro.t[i][j];
+  }
+  public TabuleiroFoto(TabuleiroFoto foto) {
+    this.n = foto.n;
+    this.t = new char[this.n][this.n];
+    for(int i=0; i<this.n; ++i)
+      for(int j=0; j<this.n; ++j)
+        this.t[i][j] = foto.t[i][j];
   }
   
   @Override public String toString() {
-    String res = "" + TabuleiroFoto.n;
-    for(int i=0; i<TabuleiroFoto.n; ++i) {
+    String res = "" + this.n + "\n";
+    for(int i=0; i<this.n; ++i) {
       res += "|";
-      for(int j=0; j<TabuleiroFoto.n; ++j) {
+      for(int j=0; j<this.n; ++j) {
         res += this.t[i][j] + "|";
       }
       res += "\n";
