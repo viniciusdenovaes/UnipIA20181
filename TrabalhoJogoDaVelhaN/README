@@ -65,5 +65,33 @@ public class AlunoTest {
   }
 }
 
+/*************/
+/* AVALIAÇÃO */
+/*************/
+
+Seu jogador será avaliado em um campeonato, ele jogará contra o jogador aleatório:
+* com tamanhos de tabuleiro variando entre 4 e 10, 
+* começando em primeiro (com 'O') e em segundo (com 'X'), 
+* 100 vezes em cada situação
+A nota do seu jogador será proporcional à média de vezes que seu jogador GANHAR do jogador aleatório
+Sendo nota máxima (6pt) quando ganhar 80% das vezes e nota mínima (3pt) quando ganhar 0% das vezes
+
+Um exemplo de como usar o .jar para um campeonato:
+
+import Model.JogadorProfessor;
+import model.Campeonato;
+import model.Player;
+import model.TabuleiroFoto;
+import playerFactory.PlayerFactory;
+
+public class AlunoTest {
+  public static void main(String[] args) {
+    
+    TabuleiroFoto tabuleiroFoto = new TabuleiroFoto(1);
+    Player p1 = new JogadorProfessor(1, tabuleiroFoto);
+    Player p2 = PlayerFactory.getPlayer('R', 1, tabuleiroFoto);
+    Campeonato.play(p1, p2);
+  }
+}
 
 
