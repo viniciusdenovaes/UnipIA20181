@@ -1,0 +1,86 @@
+exemplo de como rodar:
+
+File Controller.java:
+------------------------------------------------------------
+package controller;
+
+import model.Jogo;
+import model.Player;
+import model.TabuleiroFoto;
+
+public class Controller {
+  
+  public Controller() {
+    TabuleiroFoto tf = new TabuleiroFoto();
+    Player p1 = new Player1(tf);
+    Player p2 = new Player2(tf);
+    Jogo jogo = new Jogo(p1,p2);
+    jogo.comeca();
+  }
+
+}
+
+----------------------------------------------------------
+
+File Player1.java
+
+----------------------------------------------------------
+package controller;
+
+import model.Jogada;
+import model.Player;
+import model.TabuleiroFoto;
+
+public class Player1 extends Player{
+  
+  int i=0;
+
+  public Player1(TabuleiroFoto aTabuleiroFoto) {
+    super(aTabuleiroFoto);
+  }
+
+  @Override
+  public Jogada joga(TabuleiroFoto aTabuleiroFoto) {
+    if(i==0) {
+      ++i;
+      return new Jogada(5,3,4,4);
+    }
+    return new Jogada(4,4,5,5);
+  }
+  
+
+}
+
+
+----------------------------------------------------------
+
+File Player2.java
+
+----------------------------------------------------------
+package controller;
+
+import model.Jogada;
+import model.Player;
+import model.TabuleiroFoto;
+
+public class Player2 extends Player{
+  
+  int i=0;
+
+  public Player2(TabuleiroFoto aTabuleiroFoto) {
+    super(aTabuleiroFoto);
+  }
+
+  @Override
+  public Jogada joga(TabuleiroFoto aTabuleiroFoto) {
+    if(i==0) {
+      ++i;
+      return new Jogada(0,6,1,5);
+    }
+    return new Jogada(1,5,2,6);
+  }
+  
+
+}
+
+
