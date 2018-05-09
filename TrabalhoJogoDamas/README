@@ -27,3 +27,99 @@ public class Test {
 }
 
 
+Na pasta de src tem os códigos usados para fazer o tabuleiro, 
+você pode usar qualquer um deles, 
+não é necessário incluir no projeto, eles já estão no .jar
+
+Estas classes foram usadas para fazer o tabuleiro,
+nem todas serão úteis, você pode escolher usar ou fazer as suas.
+
+O seu jogador, em cada chamada da função joga(TabuleiroFoto tf), 
+recebe o TabuleiroFoto e já tem um side (lado ou time) que pode ser acessado com char getSide(),
+com essas funções ele tem todas as ferramentas para fazer uma jogada
+
+Algumas funções e classes que podem (talvez) ser úteis
+
+File TabuleiroFoto.java:
+------------------------------------------------------------------------------------------------------------------------
+package model;
+
+/*
+ * Um tabuleiro 10x10 de caracteres:
+ * D para dark, 
+ * E para Dama dark, (char)(D+1) 
+ * L para light, 
+ * M para Dama light, (char)(L+1)
+ * _ para vazio
+ * Com posições iniciando de baixo para cima, da esquerda para a direita
+ * 
+ *  (x,y)
+ * +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ * |(0,9)|(1,9)|(2,9)|(3,9)|(4,9)|(5,9)|(6,9)|(7,9)|(8,9)|(9,9)|
+ * +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ * |(0,8)|(1,8)|(2,8)|(3,8)|(4,8)|(5,8)|(6,8)|(7,8)|(8,8)|(9,8)|
+ * +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ * |(0,7)|(1,7)|(2,7)|(3,7)|(4,7)|(5,7)|(6,7)|(7,7)|(8,7)|(9,7)|
+ * +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ * |(0,6)|(1,6)|(2,6)|(3,6)|(4,6)|(5,6)|(6,6)|(7,6)|(8,6)|(9,6)|
+ * +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ * |(0,5)|(1,5)|(2,5)|(3,5)|(4,5)|(5,5)|(6,5)|(7,5)|(8,5)|(9,5)|
+ * +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ * |(0,4)|(1,4)|(2,4)|(3,4)|(4,4)|(5,4)|(6,4)|(7,4)|(8,4)|(9,4)|
+ * +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ * |(0,3)|(1,3)|(2,3)|(3,3)|(4,3)|(5,3)|(6,3)|(7,3)|(8,3)|(9,3)|
+ * +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ * |(0,2)|(1,2)|(2,2)|(3,2)|(4,2)|(5,2)|(6,2)|(7,2)|(8,2)|(9,2)|
+ * +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ * |(0,1)|(1,1)|(2,1)|(3,1)|(4,1)|(5,1)|(6,1)|(7,1)|(8,1)|(9,1)|
+ * +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ * |(0,0)|(1,0)|(2,0)|(3,0)|(4,0)|(5,0)|(6,0)|(7,0)|(8,0)|(9,0)|
+ * +-----+-----+-----+-----+-----+-----+-----+-----+-----+-----+
+ * 
+ * As casa cujo a soma das coordenadas é par podem estar ocupadas por uma peça
+ * Inicialmente:
+ * As casas com coordenada y menor que 4 estão com peças do lado Light
+ * As casas com coordenada y maior ou igual a 6 estão com peças do lado Dark
+ * Quem começa é o lado Light
+ * 
+ * */
+
+public class TabuleiroFoto {
+  
+  public final static int SIZE = 10;
+  
+  public char[][] foto;
+  
+  public TabuleiroFoto() {
+    this.foto = new char[SIZE][SIZE];
+    reset();
+  }
+  
+  public TabuleiroFoto(TabuleiroFoto aTabuleiroFoto) {
+    this.foto = new char[SIZE][SIZE];
+    this.setFoto(aTabuleiroFoto.getFoto());
+  }
+  public TabuleiroFoto(char[][] aFoto) {
+    this.foto = new char[SIZE][SIZE];
+    this.setFoto(aFoto);
+  }
+  
+// Torna todos espaços vazios
+  public void clean();
+// Configura para o tabuleiro inicial
+  public void reset();
+//getPeça retorna o char da peça que está na casa x y
+  public char getPeca(int x, int y) {
+  public char getPeca(Casa aCasa) {
+  public void setPeca(char peca, int x, int y) {
+  public void setPeca(char peca, Casa casa) {
+// retorna se a peça na casa x,y é do lado de side
+  public boolean isPecaSide(int x, int y, char side) {
+// retorna se a peça da casa x,y é do outro lado de side
+  public boolean isPecaOtherSide(int x, int y, char side);
+// retorna a quantidade de peças que tem do lado side
+  public int getCount(char side)
+// faz uma cópia do tabuleiro
+  public TabuleiroFoto deepCopy()
+
+
