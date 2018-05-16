@@ -87,8 +87,13 @@ public class Jogo {
     Player jogador = this.jogadorDaVez;
     char side = jogador.getSide();
     Jogada jogada = jogador.joga(this.tabuleiro.getTabuleiroFoto());
+    if(jogada==null) {
+      return null;
+    }
+    if(jogada.getQuantidadeDeMovimentos()<2)
+      terminaJogo(Peca.otherSide(side));
     //Jogada jogadaOriginal = jogada.deepCopy();
-    view.addMensagem("Jogada do side " + side +": "+jogada);
+    this.view.addMensagem("Jogada do side " + side +": "+jogada);
     //System.out.println(jogada);
     while(jogada!=null&&jogada.getQuantidadeDeMovimentos()>=2) {
       jogada = this.tabuleiro.move(jogada, side);

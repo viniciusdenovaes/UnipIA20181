@@ -46,7 +46,7 @@ public class Janela extends JFrame{
     pane.add(this.tabuleiroPanel, BorderLayout.CENTER);
     pane.add(this.controlePanel, BorderLayout.PAGE_END);
 //    pane.add(this.placarPanel, BorderLayout.PAGE_START);
-//    pane.add(this.messagePanel, BorderLayout.LINE_END);
+    pane.add(this.messagePanel, BorderLayout.LINE_END);
     
   }
   
@@ -58,7 +58,10 @@ public class Janela extends JFrame{
   }
   void setBotao(ActionListener proximaJogadaListener){
     this.controlePanel.setBotao(proximaJogadaListener);
-
+  }
+  void terminaJogo(char ganhador) {
+    this.messagePanel.addMensagem("JOGADOR " + ganhador + " GANHOU!!!");
+    this.controlePanel.ligaBotao(false);
   }
   
   

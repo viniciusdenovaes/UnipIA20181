@@ -8,7 +8,7 @@ public class MessagePanel extends JPanel{
   JScrollPane scrollPane;
   
   public MessagePanel() {
-    this.textArea = new JTextArea(5, 20);
+    this.textArea = new JTextArea(35, 25);
     this.textArea.setEditable(false);
     this.scrollPane = new JScrollPane(textArea);
 

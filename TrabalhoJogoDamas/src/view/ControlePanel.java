@@ -9,12 +9,17 @@ public class ControlePanel extends JPanel{
   
   JButton botaoProximaJogada;
   
-  public ControlePanel() {
+  ControlePanel() {
     this.botaoProximaJogada = new JButton("Próxima Jogada");
     this.add(botaoProximaJogada);
   }
-  public void setBotao(ActionListener proximaJogadaListener) {
+  void setBotao(ActionListener proximaJogadaListener) {
     this.botaoProximaJogada.addActionListener(proximaJogadaListener);
   }
+  
+  void ligaBotao(boolean b) {
+    this.botaoProximaJogada.setEnabled(b);
+  }
+  
 
 }

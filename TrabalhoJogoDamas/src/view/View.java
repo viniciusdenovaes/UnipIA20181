@@ -19,10 +19,10 @@ public class View {
     this.janela.updateTabuleiro(tf);
   }
   public void addMensagem(String msg) {
-    //janela.addMensagem(msg);
+    janela.addMensagem(msg);
   }
   public void terminaJogo(char ganhador) {
-    
+    janela.terminaJogo(ganhador);
   }
   public void recomecaJogo() {
     
