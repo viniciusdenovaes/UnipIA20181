@@ -17,7 +17,7 @@ public class Test {
     System.out.println("criando jogador 1");
     Player p1 = FactoryPlayer.getPlayer('R', tf);
     System.out.println("criando jogador 2");
-    Player p2 = FactoryPlayer.getPlayer('R', tf);
+    Player p2 = FactoryPlayer.getPlayer('1', tf);
     System.out.println("criando jogo");
     Jogo jogo = new Jogo(p1,p2);
     System.out.println("comecando jogo");
