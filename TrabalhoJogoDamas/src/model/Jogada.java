@@ -90,6 +90,7 @@ public class Jogada {
   }
   // faz um clone de uma jogada
   public Jogada deepCopy() {
+    if(this==null) return null;
     Jogada clone = new Jogada();
     for(Casa casa : this.movimentos)
       clone.add(casa.deepCopy());

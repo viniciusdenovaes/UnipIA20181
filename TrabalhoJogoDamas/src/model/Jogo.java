@@ -136,8 +136,10 @@ public class Jogo {
   class ProximaJogadaListener implements ActionListener{
 
     @Override
-    public void actionPerformed(ActionEvent arg0) {
-      acionaProximaJogada(1);
+    public void actionPerformed(ActionEvent e) {
+      if(e.getActionCommand()=="Próxima Jogada")acionaProximaJogada(1);
+      if(e.getActionCommand()=="5 jogadas")acionaProximaJogada(5);
+      if(e.getActionCommand()=="10 jogadas")acionaProximaJogada(10);
     }
     
   }
