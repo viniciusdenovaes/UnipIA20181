@@ -15,11 +15,11 @@ public class Test {
     TabuleiroFoto tf = new TabuleiroFoto();
     
     System.out.println("criando jogador 1");
-    Player p1 = FactoryPlayer.getPlayer('R', tf);
+    Player p1 = FactoryPlayer.getPlayer('1', tf);
     System.out.println("criando jogador 2");
-    Player p2 = FactoryPlayer.getPlayer('1', tf);
+    Player p2 = FactoryPlayer.getPlayer('2', tf);
     System.out.println("criando jogo");
-    Jogo jogo = new Jogo(p1,p2);
+    Jogo jogo = new Jogo(p1, p2);
     System.out.println("comecando jogo");
     jogo.comeca();
   }
@@ -123,3 +123,4 @@ public class TabuleiroFoto {
   public TabuleiroFoto deepCopy()
 
 
+/******As outras classes podem ser lidas na pasta src*****/
